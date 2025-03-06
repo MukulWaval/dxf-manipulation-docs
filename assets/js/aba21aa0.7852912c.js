@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdxf_manipulation=self.webpackChunkdxf_manipulation||[]).push([[742],{7093:u=>{u.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"default"}')}}]);
