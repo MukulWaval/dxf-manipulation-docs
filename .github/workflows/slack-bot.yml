@@ -1,0 +1,95 @@
+﻿name: Generate Changelog
+
+on:
+  workflow_dispatch:
+
+jobs:
+  send_changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Retrieve Last Processed Commit
+        run: |
+          git fetch --all
+          if [ -f .last_commit ]; then
+            LAST_COMMIT=$(cat .last_commit)
+          else
+            LAST_COMMIT=$(git rev-list --max-parents=0 HEAD)  # Use first commit if no record
+          fi
+          echo "LAST_COMMIT=$LAST_COMMIT" >> $GITHUB_ENV
+
+      - name: Get New Commits
+        run: |
+          NEW_COMMITS=$(git log $LAST_COMMIT..HEAD --pretty=format:"- %h %s (%an, %ad)" --date=format:'%Y-%m-%d %H:%M')
+          echo "New Commits:" > changelog.md
+          echo "$NEW_COMMITS" >> changelog.md
+          echo "" >> changelog.md
+
+          if [ -z "$NEW_COMMITS" ]; then
+            echo "No new commits found. Exiting."
+            exit 0
+          fi
+
+      - name: Generate Changelog
+        run: |
+          echo "## Changelog - $(date +"%Y-%m-%d")" > changelog.md
+          echo "" >> changelog.md
+
+          declare -A commit_types=(
+            [feat]="🚀 Features"
+            [fix]="🛠 Fixes"
+            [perf]="⚡ Performance Improvements"
+            [refactor]="♻️ Refactoring"
+            [docs]="📝 Documentation Updates"
+            [style]="🎨 Code Style Changes"
+            [test]="🧪 Tests"
+            [build]="🏗️ Build Changes"
+            [ci]="🔧 CI/CD"
+            [chore]="🔨 Miscellaneous"
+            [revert]="⏪ Reverts"
+            [release]="🚀 Release Updates"
+            [workflow]="⚙️ Workflow Changes"
+          )
+
+          for type in "${!commit_types[@]}"; do
+            section=${commit_types[$type]}
+            echo "### $section" >> changelog.md
+            git log $LAST_COMMIT..HEAD --grep="$type:" --pretty=format:"- %h %s (%an, %ad)" --date=format:'%Y-%m-%d %H:%M' >> changelog.md || echo "- No updates" >> changelog.md
+            echo "" >> changelog.md
+          done
+
+      - name: Update HISTORY.md
+        run: |
+          echo "---" >> HISTORY.md
+          echo "Date: $(date +"%Y-%m-%d")" >> HISTORY.md
+          echo "Commits:" >> HISTORY.md
+          cat changelog.md >> HISTORY.md
+          echo "---" >> HISTORY.md
+          echo "" >> HISTORY.md
+
+      - name: Commit and Push Updates
+        run: |
+          NEW_LAST_COMMIT=$(git rev-parse HEAD)
+          echo "$NEW_LAST_COMMIT" > .last_commit
+
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+
+          git add HISTORY.md .last_commit changelog.md
+          git commit -m "Update HISTORY.md with new commits" || echo "No changes to commit"
+          git push
+
+      - name: Share Changelog on Slack
+        uses: slackapi/slack-github-action@v2.0.0
+        with:
+          method: files.uploadV2
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          payload: |
+            channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+            initial_comment: "Here's the categorized changelog from dxf-manipulation-docs"
+            file: "./changelog.md"
+            filename: "changelog.md"
