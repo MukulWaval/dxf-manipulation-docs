@@ -5,7 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "dxf-manipulaiton",
+  title: "DXF Manipulation",
   tagline: "Precision in Every Line.",
   favicon: "img/favicon.ico",
 
