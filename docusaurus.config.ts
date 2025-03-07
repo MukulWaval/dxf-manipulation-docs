@@ -41,7 +41,7 @@ const config: Config = {
   themeConfig: {
     image: "img/dxf-manipulation-social-card.jpg",
     navbar: {
-      title: "dxf-manipulation",
+      title: "DXF Manipulation",
       logo: {
         alt: "Logo",
         src: "img/logo.svg"
