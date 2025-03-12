@@ -32,9 +32,7 @@ Leverages **ACadSharp** to ensure precision and compatibility with AutoCAD stand
 This documentation will guide you through:
 
 - **[Features](features.md)** – Overview of supported functionalities.
-- **[Installation & Setup](installation-setup.md)** – How to install and configure DXF Manipulation.
-- **[Getting Started](getting-started.md)** – Basic examples to help you create DXF/DWG files from JSON.
-- **[Understanding JSON to DXF Conversion](json-to-dxf.md)** – Detailed explanation of how JSON structures are mapped to DXF entities.
+- **[Installation & Setup](installation.md)** – How to install and configure DXF Manipulation.
 
 ## Who is This For?
 
