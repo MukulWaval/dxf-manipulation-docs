@@ -91,7 +91,17 @@ A unit mismatch exists: attributes defined as radians require input in degrees w
     "Rotation": 0,
     "WidthFactor": 1,
     "ObliqueAngle": 0,
-    "Style": "Default",
+    "Style": {
+      "Name": "Arial",
+      "Filename": "arial.ttf",
+      "BigFontFilename": "",
+      "Height": 0.0,
+      "Width": 1.0,
+      "LastHeight": 2.5,
+      "ObliqueAngle": 15.0,
+      "MirrorFlag": 0,
+      "TrueType": 0
+    },
     "Mirror": "None",
     "HorizontalAlignment": "Left",
     "AlignmentPoint": {
