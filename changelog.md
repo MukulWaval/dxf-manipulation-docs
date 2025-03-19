@@ -1,17 +1,16 @@
-## Changelog - 2025-03-12
+## Changelog - 2025-03-19
 
 ### ♻️ Refactoring
 
 ### 📝 Documentation Updates
 
 ### 🚀 Features
-- e4d0c5f feat: update Arc documentation with API details and sample construction (MukulWaval, 2025-03-12 15:17)
-- 89796b9 feat: enhance installation documentation and add Arc entity details (MukulWaval, 2025-03-12 14:48)
-- ec29e0c feat: add introduction documentation and installation guide (MukulWaval, 2025-03-12 13:45)
+- a63185c feat: enhance Text entity documentation with detailed Style attributes (MukulWaval, 2025-03-19 16:25)
+- 13fd556 feat: add documentation for Circle, Line, and Ellipse entities with API details and examples (MukulWaval, 2025-03-19 14:33)
 ### ⚡ Performance Improvements
 
 ### 🔨 Miscellaneous
-
+- 4571a1a chore: add links to DXF entity documentation (MukulWaval, 2025-03-19 14:57)
 ### 🏗️ Build Changes
 
 ### 🔧 CI/CD
