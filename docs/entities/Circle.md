@@ -1,5 +1,7 @@
 # Circle
 
+The DXF [Circle](https://help.autodesk.com/view/OARX/2021/ENU/?guid=GUID-8663262B-222C-414D-B133-4A8506A27C18) entity.
+
 ## API
 
 :::note

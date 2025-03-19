@@ -1,5 +1,7 @@
 # LwPolyline
 
+The DXF [LwPolyLine](https://help.autodesk.com/view/OARX/2021/ENU/?guid=GUID-748FC305-F3F2-4F74-825A-61F04D757A50) entity.
+
 ## API
 
 :::note
@@ -52,37 +54,40 @@ A unit mismatch exists: attributes defined as radians require input in degrees w
   "Data": {
     "Vertices": [
       {
-        "X": 0,
-        "Y": 0,
-        "Z": 0,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
         "StartWidth": 0,
         "EndWidth": 0,
         "Bulge": 0,
-        "Flags": 0
+        "Flags": "Default"
       },
       {
-        "X": 10,
-        "Y": 0,
-        "Z": 0,
+        "Location": {
+          "X": 10,
+          "Y": 0
+        },
         "StartWidth": 0,
         "EndWidth": 0,
         "Bulge": 0,
-        "Flags": 0
+        "Flags": "Default"
       },
       {
-        "X": 10,
-        "Y": 10,
-        "Z": 0,
+        "Location": {
+          "X": 10,
+          "Y": 10
+        },
         "StartWidth": 0,
         "EndWidth": 0,
         "Bulge": 0,
-        "Flags": 0
+        "Flags": "Default"
       }
     ],
     "ConstantWidth": 0,
     "Elevation": 0,
     "Thickness": 0,
-    "Flags": 0,
+    "Flags": "Default",
     "Normal": { "X": 0, "Y": 0, "Z": 1 }
   }
 }

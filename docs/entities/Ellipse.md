@@ -1,5 +1,7 @@
 # Ellipse
 
+The DXF [Ellipse](https://help.autodesk.com/view/OARX/2021/ENU/?guid=GUID-107CB04F-AD4D-4D2F-8EC9-AC90888063AB) entity.
+
 ## API
 
 :::note

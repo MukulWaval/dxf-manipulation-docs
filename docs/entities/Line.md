@@ -1,5 +1,7 @@
 # Line
 
+The DXF [Line](https://help.autodesk.com/view/OARX/2021/ENU/?guid=GUID-FCEF5726-53AE-4C43-B4EA-C84EB8686A66) entity.
+
 ## API
 
 :::note

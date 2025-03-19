@@ -1,5 +1,7 @@
 # Arc
 
+The DXF [Arc](https://help.autodesk.com/view/OARX/2021/ENU/?guid=GUID-0B14D8F1-0EBA-44BF-9108-57D8CE614BC8) entity.
+
 ## API
 
 :::note
